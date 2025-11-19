@@ -16,9 +16,9 @@ It's a micro library for manipulating [`sys.displayhook`](https://docs.python.or
 
 When you need to change the standard behavior of `displayhook`, with this library you will do it:
 
-- declaratively
-- compactly
-- beautifully
+- 💎 declaratively
+- 🫥 compactly
+- 🌞 beautifully
 
 
 ## Table of contents
