@@ -2,7 +2,7 @@
 
 [![Downloads](https://static.pepy.tech/badge/displayhooks/month)](https://pepy.tech/project/displayhooks)
 [![Downloads](https://static.pepy.tech/badge/displayhooks)](https://pepy.tech/project/displayhooks)
-[![codecov](https://codecov.io/gh/pomponchik/displayhooks/graph/badge.svg?token=UXXTj1AIcT)](https://codecov.io/gh/pomponchik/displayhooks)
+[![Coverage Status](https://coveralls.io/repos/github/pomponchik/displayhooks/badge.svg?branch=main)](https://coveralls.io/github/pomponchik/displayhooks?branch=main)
 [![Lines of code](https://sloc.xyz/github/pomponchik/displayhooks/?category=code)](https://github.com/boyter/scc/)
 [![Hits-of-Code](https://hitsofcode.com/github/pomponchik/displayhooks?branch=main)](https://hitsofcode.com/github/pomponchik/displayhooks/view?branch=main)
 [![Test-Package](https://github.com/pomponchik/displayhooks/actions/workflows/tests_and_coverage.yml/badge.svg)](https://github.com/pomponchik/metronomes/actions/workflows/tests_and_coverage.yml)
@@ -16,9 +16,9 @@ It's a micro library for manipulating [`sys.displayhook`](https://docs.python.or
 
 When you need to change the standard behavior of `displayhook`, with this library you will do it:
 
-- declaratively
-- compactly
-- beautifully
+- 💎 declaratively
+- 🫥 compactly
+- 🌞 beautifully
 
 
 ## Table of contents
