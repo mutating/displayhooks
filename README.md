@@ -18,9 +18,9 @@
 ![logo](https://raw.githubusercontent.com/mutating/displayhooks/develop/docs/assets/logo_1.svg)
 
 
-It's a micro library for manipulating [`sys.displayhook`](https://docs.python.org/3/library/sys.html#sys.displayhook).
+It's a micro-library for customizing [`sys.displayhook`](https://docs.python.org/3/library/sys.html#sys.displayhook).
 
-When you need to change the standard behavior of `displayhook`, with this library you will do it:
+If you need to change the default behavior of `sys.displayhook`, this library lets you do it:
 
 - 💎 declaratively
 - 🫥 compactly
@@ -30,7 +30,7 @@ When you need to change the standard behavior of `displayhook`, with this librar
 ## Table of contents
 
 - [**Quick start**](#quick-start)
-- [**Change the displayed value**](#change-the-displayed-value)
+- [**Transform displayed values**](#transform-displayed-values)
 - [**Prohibiting the display of certain types of values**](#prohibiting-the-display-of-certain-types-of-values)
 - [**Automatic recovery of the default hook**](#automatic-recovery-of-the-default-hook)
 
@@ -43,7 +43,7 @@ Install it:
 pip install displayhooks
 ```
 
-And use:
+Then use it: 
 
 ```python
 import sys
@@ -57,9 +57,9 @@ sys.displayhook(666)
 # [nothing!]
 ```
 
-## Change the displayed value
+## Transform displayed values
 
-You can declaratively declare a converter function for the printed values. What it returns will be used to call the original `displayhook` function.
+You can declaratively define a converter function for displayed values. Its return value will be passed to the original `displayhook` function.
 
 ```python
 import sys
@@ -73,8 +73,7 @@ sys.displayhook("What’s gone with that boy, I wonder? You TOM!")
 #> 'what’s gone with that boy, i wonder? you tom!'
 ```
 
-If your function returns `None`, nothing will be printed.
-
+If your function returns `None`, nothing is displayed.
 
 ## Prohibiting the display of certain types of values
 
