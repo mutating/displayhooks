@@ -52,5 +52,5 @@ lint.select = ["ERA001", "YTT", "ASYNC", "BLE", "B", "A", "COM", "INP", "PIE", "
 format.quote-style = "single"
 
 [project.urls]
-'Source' = 'https://github.com/pomponchik/displayhooks'
-'Tracker' = 'https://github.com/pomponchik/displayhooks/issues'
+'Source' = 'https://github.com/mutating/displayhooks'
+'Tracker' = 'https://github.com/mutating/displayhooks/issues'
