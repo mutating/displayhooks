@@ -4,7 +4,7 @@ from contextlib import redirect_stdout
 
 import pytest
 
-from displayhooks import not_display, autorestore_displayhook
+from displayhooks import autorestore_displayhook, not_display
 
 
 @autorestore_displayhook
@@ -19,21 +19,21 @@ def test_not_display_only_ints():
         return buffer.getvalue()
 
     assert display_something(5) == ''
-    assert display_something('kek') == f'{repr("kek")}\n'
+    assert display_something('kek') == f'{"kek"!r}\n'
 
 
 @pytest.mark.parametrize(
-    ['callable'],
+    'some_callable',
     [
-        (lambda: not_display(int, float),),
-        (lambda: [not_display(int), not_display(float)],),  # type: ignore[func-returns-value]
-        (lambda: not_display(float, int),),
-        (lambda: [not_display(float), not_display(int)],),  # type: ignore[func-returns-value]
+        lambda: not_display(int, float),
+        lambda: [not_display(int), not_display(float)],  # type: ignore[func-returns-value]
+        lambda: not_display(float, int),
+        lambda: [not_display(float), not_display(int)],  # type: ignore[func-returns-value]
     ],
 )
 @autorestore_displayhook
-def test_not_display_ints_and_floats(callable):
-    callable()
+def test_not_display_ints_and_floats(some_callable):
+    some_callable()
 
     def display_something(something):
         buffer = io.StringIO()
@@ -44,4 +44,4 @@ def test_not_display_ints_and_floats(callable):
 
     assert display_something(5) == ''
     assert display_something(5.5) == ''
-    assert display_something('kek') == f'{repr("kek")}\n'
+    assert display_something('kek') == f'{"kek"!r}\n'

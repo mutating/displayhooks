@@ -5,16 +5,16 @@ from typing import Any
 
 import pytest
 
-from displayhooks import converted_displayhook, autorestore_displayhook
+from displayhooks import autorestore_displayhook, converted_displayhook
 
 
 @pytest.mark.parametrize(
-    ['value'],
+    'value',
     [
-        ('kek',),
-        ('lol',),
-        (1,),
-        (1.5,),
+        'kek',
+        'lol',
+        1,
+        1.5,
     ],
 )
 @autorestore_displayhook
@@ -29,7 +29,7 @@ def test_empty_convert(value):
 
     output = buffer.getvalue()
 
-    assert output == f'{repr(value)}\n'
+    assert output == f'{value!r}\n'
 
 
 @autorestore_displayhook
@@ -48,18 +48,18 @@ def test_empty_convert_with_none():
 
 
 @pytest.mark.parametrize(
-    ['value'],
+    'value',
     [
-        ('kek',),
-        ('lol',),
-        (1,),
-        (1.5,),
+        'kek',
+        'lol',
+        1,
+        1.5,
     ],
 )
 @autorestore_displayhook
 def test_elliminating_convertion(value):
     @converted_displayhook
-    def new_displayhook(value: Any) -> Any:
+    def new_displayhook(value: Any) -> Any:  # noqa: ARG001
         return None
 
     buffer = io.StringIO()
@@ -74,7 +74,7 @@ def test_elliminating_convertion(value):
 @autorestore_displayhook
 def test_elliminating_convertion_with_none():
     @converted_displayhook
-    def new_displayhook(value: Any) -> Any:
+    def new_displayhook(value: Any) -> Any:  # noqa: ARG001
         return None
 
     buffer = io.StringIO()
@@ -87,18 +87,18 @@ def test_elliminating_convertion_with_none():
 
 
 @pytest.mark.parametrize(
-    ['value'],
+    'value',
     [
-        ('kek',),
-        ('lol',),
-        (1,),
-        (1.5,),
+        'kek',
+        'lol',
+        1,
+        1.5,
     ],
 )
 @autorestore_displayhook
 def test_real_convertion(value):
     @converted_displayhook
-    def new_displayhook(value: Any) -> Any:
+    def new_displayhook(value: Any) -> Any:  # noqa: ARG001
         return 'cheburek'
 
     buffer = io.StringIO()
@@ -107,4 +107,4 @@ def test_real_convertion(value):
 
     output = buffer.getvalue()
 
-    assert output == f'{repr("cheburek")}\n'
+    assert output == f'{"cheburek"!r}\n'

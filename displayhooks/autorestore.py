@@ -5,9 +5,8 @@ if sys.version_info >= (3, 10):
 else:
     from typing_extensions import ParamSpec  # pragma: no cover
 
-from typing import TypeVar, Callable
 from functools import wraps
-
+from typing import Callable, TypeVar
 
 FunctionParameters = ParamSpec('FunctionParameters')
 ReturningValue = TypeVar('ReturningValue')

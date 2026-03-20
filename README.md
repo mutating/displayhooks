@@ -1,20 +1,26 @@
-# displayhooks
+<details>
+  <summary>ⓘ</summary>
 
 [![Downloads](https://static.pepy.tech/badge/displayhooks/month)](https://pepy.tech/project/displayhooks)
 [![Downloads](https://static.pepy.tech/badge/displayhooks)](https://pepy.tech/project/displayhooks)
-[![Coverage Status](https://coveralls.io/repos/github/pomponchik/displayhooks/badge.svg?branch=main)](https://coveralls.io/github/pomponchik/displayhooks?branch=main)
-[![Lines of code](https://sloc.xyz/github/pomponchik/displayhooks/?category=code)](https://github.com/boyter/scc/)
-[![Hits-of-Code](https://hitsofcode.com/github/pomponchik/displayhooks?branch=main)](https://hitsofcode.com/github/pomponchik/displayhooks/view?branch=main)
-[![Test-Package](https://github.com/pomponchik/displayhooks/actions/workflows/tests_and_coverage.yml/badge.svg)](https://github.com/pomponchik/metronomes/actions/workflows/tests_and_coverage.yml)
+[![Coverage Status](https://coveralls.io/repos/github/mutating/displayhooks/badge.svg?branch=main)](https://coveralls.io/github/mutating/displayhooks?branch=main)
+[![Lines of code](https://sloc.xyz/github/mutating/displayhooks/?category=code)](https://github.com/boyter/scc/)
+[![Hits-of-Code](https://hitsofcode.com/github/mutating/displayhooks?branch=main)](https://hitsofcode.com/github/mutating/displayhooks/view?branch=main)
+[![Test-Package](https://github.com/mutating/displayhooks/actions/workflows/tests_and_coverage.yml/badge.svg)](https://github.com/mutating/metronomes/actions/workflows/tests_and_coverage.yml)
 [![Python versions](https://img.shields.io/pypi/pyversions/displayhooks.svg)](https://pypi.python.org/pypi/displayhooks)
 [![PyPI version](https://badge.fury.io/py/displayhooks.svg)](https://badge.fury.io/py/displayhooks)
 [![Checked with mypy](http://www.mypy-lang.org/static/mypy_badge.svg)](http://mypy-lang.org/)
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
+[![DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/mutating/displayhooks)
+
+</details>
+
+![logo](https://raw.githubusercontent.com/mutating/displayhooks/develop/docs/assets/logo_1.svg)
 
 
-It's a micro library for manipulating [`sys.displayhook`](https://docs.python.org/3/library/sys.html#sys.displayhook).
+It's a micro-library for customizing [`sys.displayhook`](https://docs.python.org/3/library/sys.html#sys.displayhook).
 
-When you need to change the standard behavior of `displayhook`, with this library you will do it:
+If you need to change the default behavior of `sys.displayhook`, this library lets you do it:
 
 - 💎 declaratively
 - 🫥 compactly
@@ -24,7 +30,7 @@ When you need to change the standard behavior of `displayhook`, with this librar
 ## Table of contents
 
 - [**Quick start**](#quick-start)
-- [**Change the displayed value**](#change-the-displayed-value)
+- [**Transform displayed values**](#transform-displayed-values)
 - [**Prohibiting the display of certain types of values**](#prohibiting-the-display-of-certain-types-of-values)
 - [**Automatic recovery of the default hook**](#automatic-recovery-of-the-default-hook)
 
@@ -37,7 +43,7 @@ Install it:
 pip install displayhooks
 ```
 
-And use:
+Then use it: 
 
 ```python
 import sys
@@ -51,9 +57,9 @@ sys.displayhook(666)
 # [nothing!]
 ```
 
-## Change the displayed value
+## Transform displayed values
 
-You can declaratively declare a converter function for the printed values. What it returns will be used to call the original `displayhook` function.
+You can declaratively define a converter function for displayed values. Its return value will be passed to the original `displayhook` function.
 
 ```python
 import sys
@@ -67,8 +73,7 @@ sys.displayhook("What’s gone with that boy, I wonder? You TOM!")
 #> 'what’s gone with that boy, i wonder? you tom!'
 ```
 
-If your function returns `None`, nothing will be printed.
-
+If your function returns `None`, nothing is displayed.
 
 ## Prohibiting the display of certain types of values
 
